@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Huellitas Web | Últimas Publicaciones</title>
+
+    <!-- Fuente -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS general -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Estilos internos para fondo y estructura -->
+    <style>
+        body {
+            background-image: url("img/lila-convertido-de-jfif.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+
+        .home-page .main-container {
+            padding-top: 100px;
+        }
+    </style>
+</head>
+
+<!-- CLASE PARA EL FONDO LILA -->
+<body class="home-page">
+
+    <!-- BARRA SUPERIOR -->
+    <header class="navbar">
+        <div class="navbar-left">
+            <img src="img/esfera.png" alt="Huellitas Web">
+            <span>Huellitas Web</span>
+        </div>
+
+        <nav class="navbar-right">
+            <a href="home.html" class="nav-link">Inicio</a>
+            <div class="navbar-search-wrapper">
+                <svg class="icon-svg icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m20.5 20.5-4-4"></path>
+                </svg>
+                <input type="text" class="navbar-search" placeholder="Buscar...">
+            </div>
+            <a href="mensajes.html" class="nav-link" title="Mensajes">
+                <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M4 5.5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H6l-4 4V6.5a1 1 0 0 1 1-1z"></path>
+                    <path d="M4 5.5l8 6 8-6"></path>
+                </svg>
+            </a>
+            <a href="notificaciones.html" class="nav-link" title="Notificaciones">
+                <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M18 8a6 6 0 0 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
+            </a>
+            <a href="configuraciones.html" class="nav-link" title="Configuración">
+                <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 7 4.6 1.65 1.65 0 0 0 8.51 4H9a2 2 0 0 1 4 0h.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1 1.51H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+            </a>
+            <a href="#" class="nav-link login-link" id="openLoginModal" title="Iniciar sesión" onclick="event.preventDefault(); document.getElementById('loginModal').classList.add('active');">Iniciar sesión</a>
+            </nav>
+    </header>
+
+    <!-- MODAL DE LOGIN -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-modal-content login-container">
+            <button class="login-modal-close" onclick="document.getElementById('loginModal').classList.remove('active');">&times;</button>
+            <div class="login-panel">
+                <div class="logo"><img src="img/esfera.png" alt="Esfera Huellitas Web"></div>
+                <h1>Huellitas Web</h1>
+                <p class="subtitle">Encuentra, adopta y conecta con mascotas desde cualquier lugar.</p>
+            </div>
+            <div class="login-form-panel">
+                <form action="home.html">
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <input type="password" placeholder="Contraseña" required>
+                    <a href="recuperar.html" class="forgot">¿Olvidaste tu contraseña?</a>
+                    <button type="submit">Ingresar</button>
+                </form>
+                <div class="divider"><span>o continuar con</span></div>
+                <div class="google-btn">
+                    <div id="g_id_onload" data-client_id="TU_CLIENT_ID_AQUI" data-callback="handleCredentialResponse" data-auto_select="true"></div>
+                    <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="signin_with" data-shape="rectangular" data-logo_alignment="left"></div>
+                </div>
+                <p class="register">¿Aún no tienes cuenta? <a href="#" onclick="event.preventDefault(); document.getElementById('loginModal').classList.remove('active'); document.getElementById('registerModal').classList.add('active');">Regístrate aquí</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE REGISTRO -->
+    <div class="login-modal" id="registerModal">
+        <div class="login-modal-content login-container">
+            <button class="login-modal-close" onclick="document.getElementById('registerModal').classList.remove('active');">&times;</button>
+            <div class="login-panel">
+                <div class="logo"><img src="img/esfera.png" alt="Esfera Huellitas Web"></div>
+                <h1>Crear cuenta</h1>
+                <p class="subtitle">Únete a Huellitas Web y ayuda a mascotas.</p>
+            </div>
+            <div class="login-form-panel">
+                <form action="home.html">
+                    <input type="text" placeholder="Nombre completo" required>
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <input type="password" placeholder="Contraseña" required>
+                    <input type="password" placeholder="Confirmar contraseña" required>
+                    <button type="submit">Registrarse</button>
+                </form>
+                <div class="divider"><span>o continuar con</span></div>
+                <div class="google-btn">
+                    <div id="g_id_onload" data-client_id="TU_CLIENT_ID_AQUI" data-callback="handleCredentialResponse" data-auto_select="true"></div>
+                    <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="signin_with" data-shape="rectangular" data-logo_alignment="left"></div>
+                </div>
+                <p class="register">¿Ya tienes cuenta? <a href="#" onclick="event.preventDefault(); document.getElementById('registerModal').classList.remove('active'); document.getElementById('loginModal').classList.add('active');">Inicia sesión</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-container">
+
+        <!-- ENCABEZADO -->
+        <section class="search-section">
+            <h2>Últimas Publicaciones</h2>
+            <p>Descubre las mascotas que se han publicado recientemente en nuestra comunidad.</p>
+        </section>
+
+        <!-- PUBLICACIONES -->
+        <section class="featured-section featured-top">
+            <div class="featured-header">
+                <div>
+                    <h3>Publicaciones Recientes</h3>
+                    <p>Las últimas publicaciones de nuestra comunidad.</p>
+                </div>
+            </div>
+
+            <div class="publications-grid" id="publications-container">
+                <!-- Maqueta de publicaciones - se reemplazará con JS -->
+                <div class="publication-card">
+                    <img src="img/campanita nuevo.png" alt="Campanita">
+                    <div class="publication-info">
+                        <h4>Campanita</h4>
+                        <p>Linda perrita con una combinacón de colores, muy consentida y cariñosa. Su dueña se llama Daniela Restrepo.</p>
+                        <span class="publication-date">Publicado hace 2 horas</span>
+                    </div>
+                </div>
+
+                <div class="publication-card">
+                    <img src="img/luna nuevo.png" alt="Luna">
+                    <div class="publication-info">
+                        <h4>Luna</h4>
+                        <p>perrita con unos ojos hermosos, muy consentida y dormilona. Su dueña se llama Valentina Ruiz.</p>
+                        <span class="publication-date">Publicado hace 4 horas</span>
+                    </div>
+                </div>
+
+                <div class="publication-card">
+                    <img src="img/roky.png" alt="Roky">
+                    <div class="publication-info">
+                        <h4>Roky</h4>
+                        <p>Perrito con bonito pelaje, ojos manipuladores, juguetón y cariñoso. Su dueño se llama Stiven Cardona.</p>
+                        <span class="publication-date">Publicado hace 1 día</span>
+                    </div>
+                </div>
+
+                <div class="publication-card">
+                    <img src="img/tea nuevo.png" alt="Tea">
+                    <div class="publication-info">
+                        <h4>Tea</h4>
+                        <p>Gatita con ojos verdes, independiente, fiel y cariñosa. Su dueña es Mariana Gaviria.</p>
+                        <span class="publication-date">Publicado hace 2 días</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="primary-btn" onclick="window.location.href='home.html'">Volver al Inicio</button>
+        </section>
+
+    </main>
+
+    <script>
+        // Maqueta básica - aquí se integrará la lógica para cargar publicaciones desde backend
+        // Por ahora, solo simula que las publicaciones están cargadas
+
+        console.log('Últimas publicaciones cargadas (maqueta estática)');
+
+        // Función placeholder para cargar publicaciones dinámicamente
+        function loadPublications() {
+            // Aquí iría el fetch a la API
+            // fetch('/api/publications')
+            //     .then(response => response.json())
+            //     .then(data => renderPublications(data));
+        }
+
+        function renderPublications(publications) {
+            const container = document.getElementById('publications-container');
+            container.innerHTML = '';
+
+            publications.forEach(pub => {
+                container.innerHTML += `
+                    <div class="publication-card">
+                        <img src="${pub.image}" alt="${pub.name}">
+                        <div class="publication-info">
+                            <h4>${pub.name}</h4>
+                            <p>${pub.description}</p>
+                            <span class="publication-date">${pub.date}</span>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Simular carga inicial
+        loadPublications();
+    </script>
+</body>
+</html>
+

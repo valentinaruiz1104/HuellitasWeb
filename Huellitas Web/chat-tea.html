@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Huellitas Web | Chat Tea</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="messages-page chat-detail">
+    <header class="navbar">
+        <div class="navbar-left">
+            <img src="img/esfera.png" alt="Huellitas Web">
+            <span>Huellitas Web</span>
+        </div>
+        <nav class="navbar-right">
+            <a href="home.html" class="nav-link">Inicio</a>
+            <div class="navbar-search-wrapper">
+                <svg class="icon-svg icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m20.5 20.5-4-4"></path>
+                </svg>
+                <input type="text" class="navbar-search" placeholder="Buscar...">
+            </div>
+            <a href="mensajes.html" class="nav-link" title="Mensajes">
+                <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M4 5.5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H6l-4 4V6.5a1 1 0 0 1 1-1z"></path>
+                    <path d="M4 5.5l8 6 8-6"></path>
+                </svg>
+            </a>
+            <a href="notificaciones.html" class="nav-link" title="Notificaciones">
+                <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M18 8a6 6 0 0 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
+            </a>
+            <a href="configuraciones.html" class="nav-link" title="Configuración">
+                <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 7 4.6 1.65 1.65 0 0 0 8.51 4H9a2 2 0 0 1 4 0h.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l-.06.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1 1.51H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+            </a>
+            <a href="#" class="nav-link login-link" id="openLoginModal" title="Iniciar sesión" onclick="event.preventDefault(); document.getElementById('loginModal').classList.add('active');">Iniciar sesión</a>
+            <a href="#" class="nav-link register-link" id="openRegisterModal" title="Registrarse" onclick="event.preventDefault(); document.getElementById('registerModal').classList.add('active');">Registrarse</a>
+            </nav>
+    </header>
+
+    <!-- MODAL DE LOGIN -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-modal-content login-container">
+            <button class="login-modal-close" onclick="document.getElementById('loginModal').classList.remove('active');">&times;</button>
+            <div class="login-panel">
+                <div class="logo"><img src="img/esfera.png" alt="Esfera Huellitas Web"></div>
+                <h1>Huellitas Web</h1>
+                <p class="subtitle">Encuentra, adopta y conecta con mascotas desde cualquier lugar.</p>
+            </div>
+            <div class="login-form-panel">
+                <form action="home.html">
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <input type="password" placeholder="Contraseña" required>
+                    <a href="recuperar.html" class="forgot">¿Olvidaste tu contraseña?</a>
+                    <button type="submit">Ingresar</button>
+                </form>
+                <div class="divider"><span>o continuar con</span></div>
+                <div class="google-btn">
+                    <div id="g_id_onload" data-client_id="TU_CLIENT_ID_AQUI" data-callback="handleCredentialResponse" data-auto_select="true"></div>
+                    <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="signin_with" data-shape="rectangular" data-logo_alignment="left"></div>
+                </div>
+                <p class="register">¿Aún no tienes cuenta? <a href="#" onclick="event.preventDefault(); document.getElementById('loginModal').classList.remove('active'); document.getElementById('registerModal').classList.add('active');">Regístrate aquí</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE REGISTRO -->
+    <div class="login-modal" id="registerModal">
+        <div class="login-modal-content login-container">
+            <button class="login-modal-close" onclick="document.getElementById('registerModal').classList.remove('active');">&times;</button>
+            <div class="login-panel">
+                <div class="logo"><img src="img/esfera.png" alt="Esfera Huellitas Web"></div>
+                <h1>Crear cuenta</h1>
+                <p class="subtitle">Únete a Huellitas Web y ayuda a mascotas.</p>
+            </div>
+            <div class="login-form-panel">
+                <form action="home.html">
+                    <input type="text" placeholder="Nombre completo" required>
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <input type="password" placeholder="Contraseña" required>
+                    <input type="password" placeholder="Confirmar contraseña" required>
+                    <button type="submit">Registrarse</button>
+                </form>
+                <div class="divider"><span>o continuar con</span></div>
+                <div class="google-btn">
+                    <div id="g_id_onload" data-client_id="TU_CLIENT_ID_AQUI" data-callback="handleCredentialResponse" data-auto_select="true"></div>
+                    <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="signin_with" data-shape="rectangular" data-logo_alignment="left"></div>
+                </div>
+                <p class="register">¿Ya tienes cuenta? <a href="#" onclick="event.preventDefault(); document.getElementById('registerModal').classList.remove('active'); document.getElementById('loginModal').classList.add('active');">Inicia sesión</a></p>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-container">
+        <section class="search-section">
+            <h2>Chat con Tea</h2>
+            <p>Aquí puedes seguir la conversación con Tea y ver los mensajes recientes.</p>
+        </section>
+
+        <section class="chat-panel">
+            <div class="chat-header">
+                <h3>Tea</h3>
+                <p>Último mensaje hace 1 día.</p>
+            </div>
+            <div class="chat-body">
+                <div class="message-row">
+                    <div class="message-avatar">
+                        <img src="img/tea nuevo.png" alt="Tea">
+                    </div>
+                    <div>
+                        <div class="message-bubble">¿Qué fechas tienes disponibles?</div>
+                        <div class="message-time">Ayer</div>
+                    </div>
+                </div>
+                <div class="message-row sent">
+                    <div class="message-avatar">
+                        <img src="img/esfera.png" alt="Tú">
+                    </div>
+                    <div>
+                        <div class="message-bubble">Tengo citas libres el martes y jueves.</div>
+                        <div class="message-time">Ayer</div>
+                    </div>
+                </div>
+                <div class="message-row">
+                    <div class="message-avatar">
+                        <img src="img/tea nuevo.png" alt="Tea">
+                    </div>
+                    <div>
+                        <div class="message-bubble">Perfecto, el jueves me funciona mejor.</div>
+                        <div class="message-time">Ayer</div>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <div class="chat-input">
+                    <textarea placeholder="Escribe o pega tu mensaje aquí..."></textarea>
+                    <div class="chat-buttons">
+                        <button type="button" class="copy-btn">Copiar</button>
+                        <button type="button">Enviar</button>
+                    </div>
+                </div>
+                <a href="mensajes.html" class="settings-action" style="margin-top: 16px; display: inline-block;">Volver a chats</a>
+            </div>
+        </section>
+    </main>
+    <script>
+        const copyBtn = document.querySelector('.copy-btn');
+        if (copyBtn) {
+            copyBtn.addEventListener('click', () => {
+                const textarea = document.querySelector('.chat-input textarea');
+                if (textarea) {
+                    textarea.select();
+                    navigator.clipboard.writeText(textarea.value);
+                    alert('Texto copiado al portapapeles.');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+

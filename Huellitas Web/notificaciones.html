@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Huellitas Web | Notificaciones</title>
+
+    <!-- Fuente -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS general -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Estilos internos para fondo -->
+    <style>
+        body {
+            background-image: url("img/lila-convertido-de-jfif.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+
+        .notifications-page .main-container {
+            padding-top: 100px;
+        }
+    </style>
+</head>
+
+<body class="home-page notifications-page">
+
+    <!-- BARRA SUPERIOR -->
+    <header class="navbar">
+        <div class="navbar-left">
+            <img src="img/esfera.png" alt="Huellitas Web">
+            <span>Huellitas Web</span>
+        </div>
+
+        <nav class="navbar-right">
+            <a href="home.html" class="nav-link">Inicio</a>
+            <div class="navbar-search-wrapper">
+                <svg class="icon-svg icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m20.5 20.5-4-4"></path>
+                </svg>
+                <input type="text" class="navbar-search" placeholder="Buscar...">
+            </div>
+            <a href="mensajes.html" class="nav-link" title="Mensajes">
+                <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M4 5.5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H6l-4 4V6.5a1 1 0 0 1 1-1z"></path>
+                    <path d="M4 5.5l8 6 8-6"></path>
+                </svg>
+            </a>
+            <a href="notificaciones.html" class="nav-link active" title="Notificaciones">
+                <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M18 8a6 6 0 0 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
+            </a>
+            <a href="configuraciones.html" class="nav-link" title="Configuración">
+                <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 7 4.6 1.65 1.65 0 0 0 8.51 4H9a2 2 0 0 1 4 0h.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1 1.51H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+            </a>
+            <a href="#" class="nav-link login-link" id="openLoginModal" title="Iniciar sesión" onclick="event.preventDefault(); document.getElementById('loginModal').classList.add('active');">Iniciar sesión</a>
+            <a href="#" class="nav-link register-link" id="openRegisterModal" title="Registrarse" onclick="event.preventDefault(); document.getElementById('registerModal').classList.add('active');">Registrarse</a>
+            </nav>
+    </header>
+
+    <!-- MODAL DE REGISTRO -->
+    <div class="login-modal" id="registerModal">
+        <div class="login-modal-content login-container">
+            <button class="login-modal-close" onclick="document.getElementById('registerModal').classList.remove('active');">&times;</button>
+            <div class="login-panel">
+                <div class="logo"><img src="img/esfera.png" alt="Esfera Huellitas Web"></div>
+                <h1>Crear cuenta</h1>
+                <p class="subtitle">Únete a Huellitas Web y ayuda a mascotas.</p>
+            </div>
+            <div class="login-form-panel">
+                <form action="home.html">
+                    <input type="text" placeholder="Nombre completo" required>
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <input type="password" placeholder="Contraseña" required>
+                    <input type="password" placeholder="Confirmar contraseña" required>
+                    <button type="submit">Registrarse</button>
+                </form>
+                <div class="divider"><span>o continuar con</span></div>
+                <div class="google-btn">
+                    <div id="g_id_onload" data-client_id="TU_CLIENT_ID_AQUI" data-callback="handleCredentialResponse" data-auto_select="true"></div>
+                    <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="signin_with" data-shape="rectangular" data-logo_alignment="left"></div>
+                </div>
+                <p class="register">¿Ya tienes cuenta? <a href="#" onclick="event.preventDefault(); document.getElementById('registerModal').classList.remove('active'); document.getElementById('loginModal').classList.add('active');">Inicia sesión</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE LOGIN -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-modal-content login-container">
+            <button class="login-modal-close" onclick="document.getElementById('loginModal').classList.remove('active');">&times;</button>
+            <div class="login-panel">
+                <div class="logo"><img src="img/esfera.png" alt="Esfera Huellitas Web"></div>
+                <h1>Huellitas Web</h1>
+                <p class="subtitle">Encuentra, adopta y conecta con mascotas desde cualquier lugar.</p>
+            </div>
+            <div class="login-form-panel">
+                <form action="home.html">
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <input type="password" placeholder="Contraseña" required>
+                    <a href="recuperar.html" class="forgot">¿Olvidaste tu contraseña?</a>
+                    <button type="submit">Ingresar</button>
+                </form>
+                <div class="divider"><span>o continuar con</span></div>
+                <div class="google-btn">
+                    <div id="g_id_onload" data-client_id="TU_CLIENT_ID_AQUI" data-callback="handleCredentialResponse" data-auto_select="true"></div>
+                    <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="signin_with" data-shape="rectangular" data-logo_alignment="left"></div>
+                </div>
+                <p class="register">¿Aún no tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-container">
+
+        <!-- ENCABEZADO -->
+        <section class="search-section">
+            <h2>Notificaciones</h2>
+            <p>Mantente al día con lo que pasa en Huellitas Web </p>
+        </section>
+
+        <!-- LISTA DE NOTIFICACIONES -->
+        <section class="notifications-list">
+
+            <!-- Notificación no leída -->
+            <div class="notification-item unread">
+                <img src="img/campanita nuevo.png" alt="Campanita">
+                <div class="notification-content">
+                    <h5>Campanita recibió una nueva visita</h5>
+                    <p>Alguien mostró interés en conocerla.</p>
+                    <span class="notification-time">Hace 5 minutos</span>
+                </div>
+            </div>
+
+            <!-- Notificación leída -->
+            <div class="notification-item unread">
+                <img src="img/luna nuevo.png" alt="Luna">
+                <div class="notification-content">
+                    <h5>Luna tiene nuevos likes</h5>
+                    <p>Tu publicación está llamando la atención.</p>
+                    <span class="notification-time">Hace 2 horas</span>
+                </div>
+            </div>
+
+            <!-- Otra notificación -->
+            <div class="notification-item">
+                <img src="img/roky.png" alt="Roky">
+                <div class="notification-content">
+                    <h5>Roky fue agregado a favoritos</h5>
+                    <p>Un usuario guardó a Roky.</p>
+                    <span class="notification-time">Ayer</span>
+                </div>
+            </div>
+
+            <!-- Más notificaciones de ejemplo -->
+            <div class="notification-item">
+                <img src="img/tea nuevo.png" alt="Tea">
+                <div class="notification-content">
+                    <h5>Tea recibió un comentario</h5>
+                    <p>"¡Qué hermosa! Me encantaría conocerla."</p>
+                    <span class="notification-time">Hace 3 días</span>
+                </div>
+            </div>
+
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M18 8a6 6 0 0 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg>
+                </div>
+                <div class="notification-content">
+                    <h5>Actualización del sistema</h5>
+                    <p>Nueva función disponible: filtros avanzados en búsqueda.</p>
+                    <span class="notification-time">Hace 1 semana</span>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
+

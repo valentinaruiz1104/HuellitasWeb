@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Huellitas Web | Mensajes</title>
+
+    <!-- Fuente -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS general -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="messages-page">
+
+    <!-- BARRA SUPERIOR -->
+    <header class="navbar">
+        <div class="navbar-left">
+            <img src="img/esfera.png" alt="Huellitas Web">
+            <span>Huellitas Web</span>
+        </div>
+
+        <nav class="navbar-right">
+            <a href="home.html" class="nav-link">Inicio</a>
+            <div class="navbar-search-wrapper">
+                <svg class="icon-svg icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m20.5 20.5-4-4"></path>
+                </svg>
+                <input type="text" class="navbar-search" placeholder="Buscar...">
+            </div>
+            <a href="mensajes.html" class="nav-link active" title="Mensajes">
+                <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M4 5.5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H6l-4 4V6.5a1 1 0 0 1 1-1z"></path>
+                    <path d="M4 5.5l8 6 8-6"></path>
+                </svg>
+            </a>
+            <a href="notificaciones.html" class="nav-link" title="Notificaciones">
+                <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M18 8a6 6 0 0 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
+            </a>
+            <a href="configuraciones.html" class="nav-link" title="Configuración">
+                <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 7 4.6 1.65 1.65 0 0 0 8.51 4H9a2 2 0 0 1 4 0h.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l-.06.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1 1.51H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+            </a>
+            <a href="#" class="nav-link login-link" id="openLoginModal" title="Iniciar sesión" onclick="event.preventDefault(); document.getElementById('loginModal').classList.add('active');">Iniciar sesión</a>
+            <a href="#" class="nav-link register-link" id="openRegisterModal" title="Registrarse" onclick="event.preventDefault(); document.getElementById('registerModal').classList.add('active');">Registrarse</a>
+            </nav>
+    </header>
+
+    <!-- MODAL DE REGISTRO -->
+    <div class="login-modal" id="registerModal">
+        <div class="login-modal-content login-container">
+            <button class="login-modal-close" onclick="document.getElementById('registerModal').classList.remove('active');">&times;</button>
+            <div class="login-panel">
+                <div class="logo"><img src="img/esfera.png" alt="Esfera Huellitas Web"></div>
+                <h1>Crear cuenta</h1>
+                <p class="subtitle">Únete a Huellitas Web y ayuda a mascotas.</p>
+            </div>
+            <div class="login-form-panel">
+                <form action="home.html">
+                    <input type="text" placeholder="Nombre completo" required>
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <input type="password" placeholder="Contraseña" required>
+                    <input type="password" placeholder="Confirmar contraseña" required>
+                    <button type="submit">Registrarse</button>
+                </form>
+                <div class="divider"><span>o continuar con</span></div>
+                <div class="google-btn">
+                    <div id="g_id_onload" data-client_id="TU_CLIENT_ID_AQUI" data-callback="handleCredentialResponse" data-auto_select="true"></div>
+                    <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="signin_with" data-shape="rectangular" data-logo_alignment="left"></div>
+                </div>
+                <p class="register">¿Ya tienes cuenta? <a href="#" onclick="event.preventDefault(); document.getElementById('registerModal').classList.remove('active'); document.getElementById('loginModal').classList.add('active');">Inicia sesión</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE LOGIN -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-modal-content login-container">
+            <button class="login-modal-close" onclick="document.getElementById('loginModal').classList.remove('active');">&times;</button>
+            <div class="login-panel">
+                <div class="logo"><img src="img/esfera.png" alt="Esfera Huellitas Web"></div>
+                <h1>Huellitas Web</h1>
+                <p class="subtitle">Encuentra, adopta y conecta con mascotas desde cualquier lugar.</p>
+            </div>
+            <div class="login-form-panel">
+                <form action="home.html">
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <input type="password" placeholder="Contraseña" required>
+                    <a href="recuperar.html" class="forgot">¿Olvidaste tu contraseña?</a>
+                    <button type="submit">Ingresar</button>
+                </form>
+                <div class="divider"><span>o continuar con</span></div>
+                <div class="google-btn">
+                    <div id="g_id_onload" data-client_id="TU_CLIENT_ID_AQUI" data-callback="handleCredentialResponse" data-auto_select="true"></div>
+                    <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="signin_with" data-shape="rectangular" data-logo_alignment="left"></div>
+                </div>
+                <p class="register">¿Aún no tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-container">
+        <section class="messages-layout">
+            <aside class="conversations-panel">
+                <div class="conversations-header">
+                    <h3>Conversaciones</h3>
+                    <p>Tus chats más recientes en un solo lugar.</p>
+                </div>
+                <div class="conversation-list">
+                    <button type="button" class="conversation-item active" data-chat="campanita">
+                        <div class="conversation-avatar">
+                            <img src="img/campanita nuevo.png" alt="Campanita">
+                        </div>
+                        <div class="conversation-info">
+                            <h4>Campanita</h4>
+                            <p>¿Quieres visitar esta tarde? Te dejo los horarios.</p>
+                        </div>
+                        <div class="conversation-meta">
+                            <span>Ahora</span>
+                            <span class="unread-badge">3</span>
+                        </div>
+                    </button>
+                    <button type="button" class="conversation-item" data-chat="luna">
+                        <div class="conversation-avatar">
+                            <img src="img/luna nuevo.png" alt="Luna">
+                        </div>
+                        <div class="conversation-info">
+                            <h4>Luna</h4>
+                            <p>¡Gracias por tu mensaje, hablamos pronto!</p>
+                        </div>
+                        <div class="conversation-meta">
+                            <span>1h</span>
+                        </div>
+                    </button>
+                    <button type="button" class="conversation-item" data-chat="roky">
+                        <div class="conversation-avatar">
+                            <img src="img/roky.png" alt="Roky">
+                        </div>
+                        <div class="conversation-info">
+                            <h4>Roky</h4>
+                            <p>Me interesa adoptar a esta mascota.</p>
+                        </div>
+                        <div class="conversation-meta">
+                            <span>3h</span>
+                        </div>
+                    </button>
+                    <button type="button" class="conversation-item" data-chat="tea">
+                        <div class="conversation-avatar">
+                            <img src="img/tea nuevo.png" alt="Tea">
+                        </div>
+                        <div class="conversation-info">
+                            <h4>Tea</h4>
+                            <p>¿Qué fechas tienes disponibles?</p>
+                        </div>
+                        <div class="conversation-meta">
+                            <span>1d</span>
+                        </div>
+                    </button>
+                </div>
+            </aside>
+
+            <section class="chat-panel">
+                <div class="chat-header">
+                    <h3 id="chat-title">Campanita</h3>
+                    <p id="chat-subtitle">Último mensaje recibido hace 2 minutos.</p>
+                </div>
+                <div class="chat-body" id="chat-body">
+                    <div class="message-row">
+                        <div class="message-avatar">
+                            <img src="img/campanita nuevo.png" alt="Campanita">
+                        </div>
+                        <div>
+                            <div class="message-bubble">Hola, ¿te parece si pasas esta tarde a conocerla?</div>
+                            <div class="message-time">10:24</div>
+                        </div>
+                    </div>
+                    <div class="message-row sent">
+                        <div class="message-avatar">
+                            <img src="img/esfera.png" alt="Tú">
+                        </div>
+                        <div>
+                            <div class="message-bubble">Sí, me encantaría. ¿A qué hora te viene bien?</div>
+                            <div class="message-time">10:26</div>
+                        </div>
+                    </div>
+                    <div class="message-row">
+                        <div class="message-avatar">
+                            <img src="img/campanita nuevo.png" alt="Campanita">
+                        </div>
+                        <div>
+                            <div class="message-bubble">Perfecto, te espero a las 6:00 PM.</div>
+                            <div class="message-time">10:27</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-area">
+                    <div class="chat-input">
+                        <textarea id="chat-input" placeholder="Escribe o pega tu mensaje aquí..."></textarea>
+                        <div class="chat-buttons">
+                            <button type="button" class="send-btn">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script>
+        const chatData = {
+            campanita: {
+                title: 'Campanita',
+                subtitle: 'Último mensaje recibido hace 2 minutos.',
+                messages: [
+                    { avatar: 'img/campanita nuevo.png', alt: 'Campanita', text: 'Hola, ¿te parece si pasas esta tarde a conocerla?', time: '10:24' },
+                    { avatar: 'img/esfera.png', alt: 'Tú', text: 'Sí, me encantaría. ¿A qué hora te viene bien?', time: '10:26', sent: true },
+                    { avatar: 'img/campanita nuevo.png', alt: 'Campanita', text: 'Perfecto, te espero a las 6:00 PM.', time: '10:27' },
+                ]
+            },
+            luna: {
+                title: 'Luna',
+                subtitle: 'Último mensaje hace 1 hora.',
+                messages: [
+                    { avatar: 'img/luna nuevo.png', alt: 'Luna', text: '¡Gracias por tu mensaje, hablamos pronto!', time: '09:40' },
+                    { avatar: 'img/esfera.png', alt: 'Tú', text: 'Perfecto, estaré pendiente.', time: '09:44', sent: true },
+                    { avatar: 'img/luna nuevo.png', alt: 'Luna', text: 'Genial, gracias. Te envío los detalles pronto.', time: '09:48' },
+                ]
+            },
+            roky: {
+                title: 'Roky',
+                subtitle: 'Último mensaje hace 3 horas.',
+                messages: [
+                    { avatar: 'img/roky.png', alt: 'Roky', text: 'Hola, estoy interesado en adoptar a esta mascota. ¿Se lleva bien con niños?', time: '12:10' },
+                    { avatar: 'img/esfera.png', alt: 'Tú', text: 'Sí, es muy cariñosa y tranquila con las familias. ¿Te gustaría venir a conocerla el viernes?', time: '12:14', sent: true },
+                    { avatar: 'img/roky.png', alt: 'Roky', text: 'Perfecto, el viernes en la tarde me queda bien. Gracias por la información.', time: '12:18' },
+                ]
+            },
+            tea: {
+                title: 'Tea',
+                subtitle: 'Último mensaje hace 1 día.',
+                messages: [
+                    { avatar: 'img/tea nuevo.png', alt: 'Tea', text: '¿Qué fechas tienes disponibles?', time: 'Ayer' },
+                    { avatar: 'img/esfera.png', alt: 'Tú', text: 'Tengo disponibilidad esta semana martes y jueves.', time: 'Ayer', sent: true },
+                    { avatar: 'img/tea nuevo.png', alt: 'Tea', text: 'Perfecto, me queda mejor el jueves.', time: 'Ayer' },
+                ]
+            }
+        };
+
+        const chatTitle = document.getElementById('chat-title');
+        const chatSubtitle = document.getElementById('chat-subtitle');
+        const chatBody = document.getElementById('chat-body');
+        const conversationItems = document.querySelectorAll('.conversation-item');
+        const sendBtn = document.querySelector('.send-btn');
+        const chatInput = document.getElementById('chat-input');
+
+        function renderChat(chatKey) {
+            const chat = chatData[chatKey];
+            if (!chat) return;
+            chatTitle.textContent = chat.title;
+            chatSubtitle.textContent = chat.subtitle;
+            chatBody.innerHTML = chat.messages.map(msg => `
+                <div class="message-row${msg.sent ? ' sent' : ''}">
+                    <div class="message-avatar">
+                        <img src="${msg.avatar}" alt="${msg.alt}">
+                    </div>
+                    <div>
+                        <div class="message-bubble">${msg.text}</div>
+                        <div class="message-time">${msg.time}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        conversationItems.forEach(item => {
+            item.addEventListener('click', () => {
+                conversationItems.forEach(btn => btn.classList.remove('active'));
+                item.classList.add('active');
+                const chatKey = item.getAttribute('data-chat');
+                renderChat(chatKey);
+            });
+        });
+
+        if (sendBtn) {
+            sendBtn.addEventListener('click', () => {
+                if (!chatInput.value.trim()) return;
+                const messageHtml = `\n                    <div class="message-row sent">\n                        <div class="message-avatar">\n                            <img src="img/esfera.png" alt="Tú">\n                        </div>\n                        <div>\n                            <div class="message-bubble">${chatInput.value}</div>\n                            <div class="message-time">Ahora</div>\n                        </div>\n                    </div>\n                `;
+                chatBody.insertAdjacentHTML('beforeend', messageHtml);
+                chatInput.value = '';
+                chatBody.scrollTop = chatBody.scrollHeight;
+            });
+        }
+
+        renderChat('campanita');
+    </script>
+</body>
+</html>
+
