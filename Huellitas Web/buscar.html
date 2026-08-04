@@ -224,7 +224,7 @@
                 <path d="M4 5.5l8 6 8-6"></path>
             </svg>
         </a>
-        <a href="notificaciones.html" class="nav-link" title="Notificaciones">
+        <a href="#" class="nav-link" title="Notificaciones" onclick="event.preventDefault(); openModal('notificationsModal');">
             <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path d="M18 8a6 6 0 0 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"></path>
                 <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
@@ -236,8 +236,8 @@
                 <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 7 4.6 1.65 1.65 0 0 0 8.51 4H9a2 2 0 0 1 4 0h.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1 1.51H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
             </svg>
         </a>
-<a href="#" class="nav-link login-link" id="openLoginModal" title="Iniciar sesión" onclick="event.preventDefault(); document.getElementById('loginModal').classList.add('active');">Iniciar sesión</a>
-        <a href="#" class="nav-link register-link" id="openRegisterModal" title="Registrarse" onclick="event.preventDefault(); document.getElementById('registerModal').classList.add('active');">Registrarse</a>
+        <a href="#" class="nav-link login-link" title="Iniciar sesión" onclick="event.preventDefault(); openModal('loginModal');">Iniciar sesión</a>
+        <a href="#" class="nav-link register-link" title="Registrarse" onclick="event.preventDefault(); openModal('registerModal');">Registrarse</a>
         </nav>
     </header>
 
@@ -280,7 +280,7 @@
                 <form action="home.html">
                     <input type="email" placeholder="Correo electrónico" required>
                     <input type="password" placeholder="Contraseña" required>
-                    <a href="recuperar.html" class="forgot">¿Olvidaste tu contraseña?</a>
+                    <a href="#" class="forgot" onclick="event.preventDefault(); closeModal('loginModal'); openModal('recoverModal');">¿Olvidaste tu contraseña?</a>
                     <button type="submit">Ingresar</button>
                 </form>
                 <div class="divider"><span>o continuar con</span></div>
@@ -290,6 +290,98 @@
                 </div>
                 <p class="register">¿Aún no tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
             </div>
+        </div>
+    </div>
+
+    <div class="login-modal" id="recoverModal">
+        <div class="login-modal-content login-container">
+            <button class="login-modal-close" onclick="closeModal('recoverModal');">&times;</button>
+            <div class="login-panel">
+                <div class="logo"><img src="img/esfera.png" alt="Esfera Huellitas Web"></div>
+                <h1>Recupera tu contraseña</h1>
+                <p class="subtitle">Ingresa tu correo para recibir el enlace de recuperación.</p>
+            </div>
+            <div class="login-form-panel">
+                <form action="#" onsubmit="event.preventDefault(); closeModal('recoverModal'); alert('Se envió el enlace de recuperación.');">
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <button type="submit">Enviar enlace</button>
+                </form>
+                <p class="register">¿Recuerdas tu contraseña? <a href="#" onclick="event.preventDefault(); closeModal('recoverModal'); openModal('loginModal');">Volver al inicio de sesión</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE NOTIFICACIONES -->
+    <div class="login-modal" id="notificationsModal">
+        <div class="notifications-modal-content">
+            <button class="login-modal-close" onclick="closeModal('notificationsModal');">&times;</button>
+            
+            <h3 style="text-align: center; color: #6d4dff; margin-bottom: 20px;">Notificaciones</h3>
+            
+            <div class="notifications-list">
+                <div class="notification-item">
+                    <div class="notification-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                    </div>
+                    <div class="notification-content">
+                        <p><strong>Campanita</strong> ha publicado una nueva foto.</p>
+                        <span class="notification-time">Hace 2 horas</span>
+                    </div>
+                </div>
+                
+                <div class="notification-item">
+                    <div class="notification-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="m9 12 2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <div class="notification-content">
+                        <p><strong>Luna</strong> ha sido adoptada. ¡Felicidades!</p>
+                        <span class="notification-time">Hace 5 horas</span>
+                    </div>
+                </div>
+                
+                <div class="notification-item">
+                    <div class="notification-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                        </svg>
+                    </div>
+                    <div class="notification-content">
+                        <p>Nueva campaña de adopción en tu zona.</p>
+                        <span class="notification-time">Hace 1 día</span>
+                    </div>
+                </div>
+                
+                <div class="notification-item">
+                    <div class="notification-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                        </svg>
+                    </div>
+                    <div class="notification-content">
+                        <p><strong>Roky</strong> recibió 10 likes en su publicación.</p>
+                        <span class="notification-time">Hace 2 días</span>
+                    </div>
+                </div>
+                
+                <div class="notification-item">
+                    <div class="notification-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 3l14 9-14 9V3z"></path>
+                        </svg>
+                    </div>
+                    <div class="notification-content">
+                        <p>¡Bienvenido a Huellitas Web! Explora y adopta.</p>
+                        <span class="notification-time">Hace 3 días</span>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="primary-btn" style="width: 100%; margin-top: 20px;" onclick="closeModal('notificationsModal');">Ver todas</button>
         </div>
     </div>
 
@@ -338,6 +430,7 @@
 
 </main>
 
+<script src="archivo.js"></script>
 </body>
 </html>
 

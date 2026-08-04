@@ -37,7 +37,7 @@
             <form action="home.html">
                 <input type="email" placeholder="Correo electrónico" required>
                 <input type="password" placeholder="Contraseña" required>
-                <a href="recuperar.html" class="forgot">¿Olvidaste tu contraseña?</a>
+                <a href="#" class="forgot" onclick="event.preventDefault(); openModal('recoverModal');">¿Olvidaste tu contraseña?</a>
                 <button type="submit">Ingresar</button>
             </form>
 
@@ -64,6 +64,23 @@
             </p>
         </div>
     </div>
+    <div class="login-modal" id="recoverModal">
+        <div class="login-modal-content login-container">
+            <button class="login-modal-close" onclick="closeModal('recoverModal');">&times;</button>
+            <div class="login-panel">
+                <div class="logo"><img src="img/esfera.png" alt="Esfera Huellitas Web"></div>
+                <h1>Recupera tu contraseña</h1>
+                <p class="subtitle">Ingresa tu correo para recibir el enlace de recuperación.</p>
+            </div>
+            <div class="login-form-panel">
+                <form action="#" onsubmit="event.preventDefault(); closeModal('recoverModal'); alert('Se envió el enlace de recuperación.');">
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <button type="submit">Enviar enlace</button>
+                </form>
+                <p class="register">¿Recuerdas tu contraseña? <a href="#" onclick="event.preventDefault(); closeModal('recoverModal'); openModal('loginModal');">Volver al inicio de sesión</a></p>
+            </div>
+        </div>
+    </div>
 
-</body>
+    <script src="archivo.js"></script></body>
 </html>

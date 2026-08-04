@@ -51,7 +51,7 @@
                     <path d="M4 5.5l8 6 8-6"></path>
                 </svg>
             </a>
-            <a href="notificaciones.html" class="nav-link" title="Notificaciones">
+            <a href="#" class="nav-link" title="Notificaciones" onclick="event.preventDefault(); openModal('notificationsModal');">
                 <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                     <path d="M18 8a6 6 0 0 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"></path>
                     <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
@@ -63,7 +63,7 @@
                     <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 7 4.6 1.65 1.65 0 0 0 8.51 4H9a2 2 0 0 1 4 0h.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1 1.51H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
                 </svg>
             </a>
-            <a href="#" class="nav-link login-link" id="openLoginModal" title="Iniciar sesión" onclick="event.preventDefault(); document.getElementById('loginModal').classList.add('active');">Iniciar sesión</a>
+            <a href="#" class="nav-link login-link" title="Iniciar sesión" onclick="event.preventDefault(); openModal('loginModal');">Iniciar sesión</a>
             </nav>
     </header>
 
@@ -80,7 +80,7 @@
                 <form action="home.html">
                     <input type="email" placeholder="Correo electrónico" required>
                     <input type="password" placeholder="Contraseña" required>
-                    <a href="recuperar.html" class="forgot">¿Olvidaste tu contraseña?</a>
+                    <a href="#" class="forgot" onclick="event.preventDefault(); closeModal('loginModal'); openModal('recoverModal');">¿Olvidaste tu contraseña?</a>
                     <button type="submit">Ingresar</button>
                 </form>
                 <div class="divider"><span>o continuar con</span></div>
@@ -116,6 +116,46 @@
                     <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="signin_with" data-shape="rectangular" data-logo_alignment="left"></div>
                 </div>
                 <p class="register">¿Ya tienes cuenta? <a href="#" onclick="event.preventDefault(); document.getElementById('registerModal').classList.remove('active'); document.getElementById('loginModal').classList.add('active');">Inicia sesión</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="login-modal" id="recoverModal">
+        <div class="login-modal-content login-container">
+            <button class="login-modal-close" onclick="closeModal('recoverModal');">&times;</button>
+            <div class="login-panel">
+                <div class="logo"><img src="img/esfera.png" alt="Esfera Huellitas Web"></div>
+                <h1>Recupera tu contraseña</h1>
+                <p class="subtitle">Ingresa tu correo para recibir el enlace de recuperación.</p>
+            </div>
+            <div class="login-form-panel">
+                <form action="#" onsubmit="event.preventDefault(); closeModal('recoverModal'); alert('Se envió el enlace de recuperación.');">
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <button type="submit">Enviar enlace</button>
+                </form>
+                <p class="register">¿Recuerdas tu contraseña? <a href="#" onclick="event.preventDefault(); closeModal('recoverModal'); openModal('loginModal');">Volver al inicio de sesión</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="login-modal" id="notificationsModal">
+        <div class="login-modal-content login-container">
+            <button class="login-modal-close" onclick="closeModal('notificationsModal');">&times;</button>
+            <div class="login-panel">
+                <div class="logo"><img src="img/esfera.png" alt="Esfera Huellitas Web"></div>
+                <h1>Notificaciones</h1>
+                <p class="subtitle">Aquí puedes ver las últimas alertas y mensajes de tu cuenta.</p>
+            </div>
+            <div class="login-form-panel">
+                <div class="notification-item">
+                    <h3>Nueva adopción exitosa</h3>
+                    <p>¡Felicidades! Tu publicación ha generado interés.</p>
+                </div>
+                <div class="notification-item">
+                    <h3>Mensaje recibido</h3>
+                    <p>Revisa tus mensajes para responder a una adopción.</p>
+                </div>
+                <button type="button" onclick="closeModal('notificationsModal');">Cerrar</button>
             </div>
         </div>
     </div>
@@ -159,7 +199,7 @@
                 </div>
 
                 <div class="publication-card">
-                    <img src="img/roky.png" alt="Roky">
+                    <img src="img/Rockygrande.png" alt="Roky">
                     <div class="publication-info">
                         <h4>Roky</h4>
                         <p>Perrito con bonito pelaje, ojos manipuladores, juguetón y cariñoso. Su dueño se llama Stiven Cardona.</p>
@@ -217,6 +257,7 @@
         // Simular carga inicial
         loadPublications();
     </script>
+    <script src="archivo.js"></script>
 </body>
 </html>
 
